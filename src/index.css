@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-ink-950: #14161a;
+  --color-ink-900: #1c1f24;
+  --color-ink-800: #262a30;
+  --color-ink-700: #383d45;
+  --color-ink-500: #6b7076;
+  --color-ink-300: #b7bbbf;
+  --color-ink-100: #e4e4e0;
+  --color-ink-50: #fafaf8;
+
+  --color-herb-700: #1f4d38;
+  --color-herb-600: #2f6f4f;
+  --color-herb-500: #3d8763;
+  --color-herb-100: #e2ede6;
+  --color-herb-50: #f2f7f4;
+
+  --color-amber-warm: #c98a2c;
+  --color-amber-soft: #f6ecd8;
+  --color-sky-info: #3468b0;
+  --color-sky-soft: #e5edf7;
+}
+
+/* Dark mode via .dark class on <html> */
+:root {
+  color-scheme: light;
+}
+.dark {
+  color-scheme: dark;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-ink-50);
+  color: var(--color-ink-900);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+.dark body {
+  background-color: var(--color-ink-950);
+  color: var(--color-ink-50);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-ink-300) transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Receipt-style dashed divider — the signature motif used across price breakdowns */
+.receipt-rule {
+  background-image: repeating-linear-gradient(
+    to right,
+    currentColor 0,
+    currentColor 5px,
+    transparent 5px,
+    transparent 11px
+  );
+  height: 1px;
+  opacity: 0.35;
+}
+
+.card-surface {
+  background-color: #ffffff;
+  border: 1px solid var(--color-ink-100);
+}
+.dark .card-surface {
+  background-color: var(--color-ink-900);
+  border-color: var(--color-ink-800);
+}
