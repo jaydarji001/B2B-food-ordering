@@ -18,7 +18,7 @@ export default function MasterLayout() {
       <aside className="hidden w-60 shrink-0 flex-col border-r border-ink-100 bg-white px-4 py-6 dark:border-ink-800 dark:bg-ink-900 md:flex">
         <div className="mb-8 px-2">
           <div className="font-display text-lg font-semibold text-ink-900 dark:text-ink-50">Fareshare</div>
-          <div className="text-xs text-ink-500">Master Console</div>
+          <div className="text-xs text-ink-500 dark:text-ink-300">Master Console</div>
         </div>
         <nav className="flex-1 space-y-1">
           {NAV.map(({ to, label, icon: Icon, end }) => (
@@ -40,7 +40,7 @@ export default function MasterLayout() {
           ))}
         </nav>
         <div className="border-t border-ink-100 pt-4 dark:border-ink-800">
-          <div className="mb-3 px-1 text-xs text-ink-500">Signed in as</div>
+          <div className="mb-3 px-1 text-xs text-ink-500 dark:text-ink-300">Signed in as</div>
           <div className="mb-4 px-1 text-sm font-medium text-ink-900 dark:text-ink-50">{user?.name}</div>
           <button
             onClick={logout}
@@ -54,12 +54,14 @@ export default function MasterLayout() {
       <div className="flex min-w-0 flex-1 flex-col">
         <header className="flex items-center justify-between border-b border-ink-100 bg-white px-5 py-3.5 dark:border-ink-800 dark:bg-ink-900 md:hidden">
           <div className="font-display text-base font-semibold text-ink-900 dark:text-ink-50">Fareshare</div>
-          <button onClick={logout} className="text-ink-500"><LogOut size={18} /></button>
+          <button onClick={logout} className="text-ink-500 dark:text-ink-300">
+            <LogOut size={18} />
+          </button>
         </header>
         <div className="hidden justify-end border-b border-ink-100 bg-white px-6 py-3 dark:border-ink-800 dark:bg-ink-900 md:flex">
           <button
             onClick={toggle}
-            className="flex h-9 w-9 items-center justify-center rounded-lg text-ink-500 hover:bg-ink-100 dark:hover:bg-ink-800"
+            className="flex h-9 w-9 items-center justify-center rounded-lg text-ink-500 hover:bg-ink-100 dark:text-ink-300 dark:hover:bg-ink-800"
             aria-label="Toggle dark mode"
           >
             {dark ? <Sun size={17} /> : <Moon size={17} />}
@@ -76,7 +78,7 @@ export default function MasterLayout() {
               end={end}
               className={({ isActive }) =>
                 `flex flex-col items-center gap-0.5 px-3 py-1.5 text-[11px] font-medium ${
-                  isActive ? "text-herb-600" : "text-ink-500"
+                  isActive ? "text-herb-600" : "text-ink-500 dark:text-ink-300"
                 }`
               }
             >
