@@ -1,10 +1,12 @@
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import toast from "react-hot-toast";
 import { Store, Mail, Lock } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { Input, Button } from "../components/ui";
+
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
