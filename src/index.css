@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-display: "Fraunces", ui-serif, Georgia, serif;
   --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
@@ -29,9 +31,20 @@
 /* Dark mode via .dark class on <html> */
 :root {
   color-scheme: light;
+  --color-surface: #ffffff;
+  --color-surface-border: var(--color-ink-100);
+  --color-text-primary: var(--color-ink-900);
+  --color-text-secondary: var(--color-ink-700);
+  --color-text-muted: var(--color-ink-500);
 }
+
 .dark {
   color-scheme: dark;
+  --color-surface: var(--color-ink-900);
+  --color-surface-border: var(--color-ink-800);
+  --color-text-primary: var(--color-ink-50);
+  --color-text-secondary: var(--color-ink-300);
+  --color-text-muted: var(--color-ink-500);
 }
 
 html, body, #root {
@@ -41,12 +54,11 @@ html, body, #root {
 body {
   font-family: var(--font-body);
   background-color: var(--color-ink-50);
-  color: var(--color-ink-900);
+  color: var(--color-text-primary);
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 .dark body {
   background-color: var(--color-ink-950);
-  color: var(--color-ink-50);
 }
 
 * {
@@ -76,10 +88,8 @@ body {
 }
 
 .card-surface {
-  background-color: #ffffff;
-  border: 1px solid var(--color-ink-100);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-surface-border);
+  color: var(--color-text-primary);
 }
-.dark .card-surface {
-  background-color: var(--color-ink-900);
-  border-color: var(--color-ink-800);
-}
+
