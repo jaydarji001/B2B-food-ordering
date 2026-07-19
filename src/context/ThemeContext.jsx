@@ -4,7 +4,7 @@ import { loadJSON, saveJSON } from "../utils/storage";
 const ThemeContext = createContext(null);
 
 export function ThemeProvider({ children }) {
-  const [dark, setDark] = useState(() => loadJSON("theme-dark", false));
+  const [dark, setDark] = useState(() => loadJSON("theme-dark", true));
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", dark);
